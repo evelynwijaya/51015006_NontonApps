@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <fragment
+        android:id="@+id/fragmentL"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:name="com.example.lenovo.nontonapps.FragmentList"
+        tools:layout="@layout/fragment_list"
+        />
+
+    <fragment
+        android:id="@+id/fragmentD"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:name="com.example.lenovo.nontonapps.FragmentDetail"
+        tools:layout="@layout/fragment_detail"
+        />
+</LinearLayout>
