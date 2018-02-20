@@ -57,11 +57,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (cursor != null){
                     if(cursor.getCount() > 0 ){
                         cursor.moveToNext();
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("Datasaya", edtEmail.getText().toString());
+                        startActivity(intent);
+
                         edtEmail.setText("");
                         edtPassword.setText("");
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("email", email);
-                        startActivity(intent);
                     } else{
                         Toast.makeText(getApplicationContext(), "Email atau Password Salah", Toast.LENGTH_SHORT).show();
                     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f8f9ca"
+    tools:context="com.example.lenovo.nontonapps.ProfilActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email Anda:"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="20sp"
+        android:textColor="#060c33"
+        android:textAlignment="center"
+        android:layout_weight="20"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/bt_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Logout"
+        android:background="#ef404c"
+        android:layout_margin="20dp"
+        />
+
+</LinearLayout>

@@ -5,34 +5,46 @@
     android:layout_height="match_parent"
     tools:context="com.example.lenovo.nontonapps.LoginActivity"
     android:orientation="vertical"
-    android:layout_margin="12dp">
+    android:background="@drawable/bg4"
+
+    >
 
     <EditText
-        android:layout_width="match_parent"
+        android:id="@+id/edtEmail"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="E-mail"
-        android:id="@+id/edtEmail"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:paddingTop="100dp"
         android:inputType="textEmailAddress"/>
 
     <EditText
-        android:layout_width="match_parent"
+        android:id="@+id/edtPassword"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:id="@+id/edtPassword"
+        android:textColor="#fff"
+        android:layout_gravity="center"
         android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/btnlogin"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="LOGIN"
+        android:background="#360766"
+        android:textColor="#fff"
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRegister"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="REGISTER"
-        android:id="@+id/btnRegister"
+        android:background="#a00c36"
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
