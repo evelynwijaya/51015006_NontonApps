@@ -1,7 +1,9 @@
 package com.example.lenovo.nontonapps;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,69 +15,80 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.lenovo.nontonapps.database.DatabaseHelper;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
-    SQLiteOpenHelper openHelper;
-    SQLiteDatabase db;
-    Cursor cursor;
-    EditText edtEmail, edtPassword;
-    Button btnRegister, btnLogin;
+    EditText et_username,et_password;
+    Button bt_login, bt_regis;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference userRef = database.getReference("users");
+
+    SharedPreferences mylocaldata;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        openHelper = new DatabaseHelper(this);
+        et_username = (EditText)findViewById(R.id.et_username);
+        et_password = (EditText)findViewById(R.id.et_password);
+        bt_login = (Button)findViewById(R.id.bt_login);
+        bt_regis = (Button)findViewById(R.id.bt_regis);
 
-        btnLogin = findViewById(R.id.btnlogin);
-        btnRegister = findViewById(R.id.btnRegister);
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.edtPassword);
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db=openHelper.getWritableDatabase();
-                String femail = edtEmail.getText().toString();
-                String fpass = edtPassword.getText().toString();
-                if((!"".equals(femail)) || (!"".equals(fpass))) {
-                    insertdatauser(femail,fpass);
-                    Toast.makeText(getApplicationContext(), "Register Successfullly", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Data Tidak Lengkap", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+                String username = et_username.getText().toString();
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                db=openHelper.getWritableDatabase();
-                String email = edtEmail.getText().toString();
-                String pass = edtPassword.getText().toString();
-                cursor = db.rawQuery("Select * From " + DatabaseHelper.Table_User + " Where " + DatabaseHelper.UserCol_1 + " =? AND " + DatabaseHelper.UserCol_2 + "=?", new String[]{email,pass});
-                if (cursor != null){
-                    if(cursor.getCount() > 0 ){
-                        cursor.moveToNext();
+                //pemanggilan data pada firebase berdasarkan email
 
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("Datasaya", edtEmail.getText().toString());
-                        startActivity(intent);
+                userRef.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        mylocaldata = getSharedPreferences("mylocaldata",MODE_PRIVATE);
+                        User user = new User();
+                        if (dataSnapshot.exists()){
+                            user.setUsername(dataSnapshot.child("username").getValue(String.class));
+                            user.setPassword(dataSnapshot.child("password").getValue(String.class));
 
-                        edtEmail.setText("");
-                        edtPassword.setText("");
-                    } else{
-                        Toast.makeText(getApplicationContext(), "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+                            SharedPreferences.Editor editor = mylocaldata.edit();
+                            editor.putString("uid",user.getUsername());
+                            editor.apply();
+
+                            //pindah ke main activity
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.putExtra("Datasaya", et_username.getText().toString());
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            Context context = getApplicationContext();
+                            CharSequence text = "User tidak ditemukan";
+                            int duration = Toast.LENGTH_SHORT;
+
+                            Toast toast = Toast.makeText(context,text,duration);
+                            toast.show();
+                        }
                     }
-                }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
-    }
 
-    public void insertdatauser(String femail, String fpass){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.UserCol_1, femail);
-        contentValues.put(DatabaseHelper.UserCol_2, fpass);
-        Long id = db.insert(DatabaseHelper.Table_User, null, contentValues);
+        bt_regis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
