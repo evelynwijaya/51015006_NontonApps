@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "642813109688",
+    "firebase_url": "https://loginactivity-6bea0.firebaseio.com",
+    "project_id": "loginactivity-6bea0",
+    "storage_bucket": "loginactivity-6bea0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642813109688:android:1acdc538d791a4f0",
+        "android_client_info": {
+          "package_name": "com.example.lenovo.loginactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642813109688-ofjtfl3r7i2ajqsrgf64pseifogbtfcd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.loginactivity",
+            "certificate_hash": "a27121179c6fde060111d40cef02276aeb988a1e"
+          }
+        },
+        {
+          "client_id": "642813109688-t44gaq030p8a1ab1h2omvpolmi84ffah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKVlO38Am3gzVRt3HdTHwQUSeMDC-8SHo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642813109688-t44gaq030p8a1ab1h2omvpolmi84ffah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642813109688:android:11dc18bf2c5614b9",
+        "android_client_info": {
+          "package_name": "com.example.lenovo.nontonapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642813109688-cvvsi3dqrfj8k8q4519c6eve41o0cvqe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lenovo.nontonapps",
+            "certificate_hash": "a27121179c6fde060111d40cef02276aeb988a1e"
+          }
+        },
+        {
+          "client_id": "642813109688-t44gaq030p8a1ab1h2omvpolmi84ffah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKVlO38Am3gzVRt3HdTHwQUSeMDC-8SHo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642813109688-t44gaq030p8a1ab1h2omvpolmi84ffah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
