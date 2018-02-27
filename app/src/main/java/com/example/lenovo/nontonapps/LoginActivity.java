@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         et_password = (EditText)findViewById(R.id.et_password);
         bt_login = (Button)findViewById(R.id.bt_login);
         bt_regis = (Button)findViewById(R.id.bt_regis);
-        
+
 
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override

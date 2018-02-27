@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg4"
+
     tools:context="com.example.lenovo.nontonapps.RegisterActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:text="Username:"/>
 
     <EditText
@@ -28,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:text="Email:"/>
 
     <EditText
@@ -43,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:text="Password :"/>
 
     <EditText
@@ -60,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:textColor="#fff"
-        android:background="#313547"
+        android:background="#A00C36"
         android:layout_gravity="center"
         android:text="register"/>
 </LinearLayout>

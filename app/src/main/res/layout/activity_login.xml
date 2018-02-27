@@ -6,14 +6,19 @@
     tools:context="com.example.lenovo.nontonapps.LoginActivity"
     android:orientation="vertical"
     android:background="@drawable/bg4"
-
     >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:text="Username :"/>
 
 
@@ -30,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:text="Password :"/>
 
 
@@ -50,7 +56,7 @@
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:textColor="#fff"
-        android:background="#313547"
+        android:background="#360766"
         android:text="LOGIN"/>
 
     <Button
@@ -60,7 +66,7 @@
         android:layout_margin="8dp"
         android:layout_gravity="center"
         android:textColor="#fff"
-        android:background="#f54954"
+        android:background="#A00C36"
         android:text="Not Registered"/>
 
 </LinearLayout>
